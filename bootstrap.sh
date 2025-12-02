@@ -24,3 +24,46 @@ sed -i 's/OPTIONS=.*/OPTIONS="-u bind -4"/' /etc/default/named
 echo "Reiniciando BIND..."
 systemctl restart bind9
 systemctl enable named.service
+
+
+echo "Instalamos Ngnix"
+apt install nginx -y
+
+echo "Instalamos Git"
+apt install git -y
+
+echo "Creamos la estroctura"
+mkdir -p /var/www/juanma-davids.test/html
+
+echo "Clonando web estática..."
+if [ ! -d "/var/www/juanma-davids.test/html/css" ]; then
+    git clone https://github.com/cloudacademy/static-website-example /var/www/juanma-davids.test/html
+fi
+
+echo "Asignando permisos..."
+chown -R www-data:www-data /var/www/juanma-davids.test
+chmod -R 755 /var/www/juanma-davids.test
+
+echo "Creando config Nginx..."
+cat > /etc/nginx/sites-available/juanma-davids.test << 'EOF'
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/juanma-davids.test/html;
+    index index.html index.htm;
+
+    server_name juanma-davids.test;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+EOF
+
+echo "Activando sitio..."
+ln -sf /etc/nginx/sites-available/juanma-davids.test /etc/nginx/sites-enabled/
+
+echo "Reiniciando Nginx..."
+systemctl restart nginx
+

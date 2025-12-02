@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
   # Sincroniza el directorio local con la VM
   config.vm.synced_folder ".", "/vagrant", disabled: false
 
+  config.vm.synced_folder "./web", "/var/www/juanma-davids.test/html", owner: "www-data", group: "www-data", mount_options: ["dmode=755", "fmode=644"]
+
   # Provisionamiento automático
   config.vm.provision "shell", path: "bootstrap.sh"
 end

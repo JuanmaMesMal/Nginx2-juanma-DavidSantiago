@@ -7,6 +7,22 @@
  ![Comprobar openssl](assets/img/ComprobarOpenssl.png)
  - Ahora creamos un archivo done van a estar los usuarios y contraseñas 
  ![Creacion archivo Usuario y passwrd](assets/img/CreacionPasswrd.png)
+ - Creamos otro usuario y lo comprobamos con el comando cat /etc/nginx/.htpasswd
+ ![Comprobar dos usuarios](assets/img/ComprobarDosUser.png)
+### Configurar autenticación básica
+ - Configuramos el archivo de sites-available y le añadimos las directrices de autenticación
+ ![Conf Sites-available](assets/img/ConfiguracionSites-available.png)
+ - Si buscamos el nombre del servidor en nuestro caso juanma-davids.test nos sale la autenticacion
+ ![Pregunta credenciales](assets/img/PreguntaCredenciales.png)
+   - si cancelamos nos sale el error 401 
+   ![Error401](assets/img/Error401.png)
+   - Y si ponemos credenciales correctas.
+   ![Credenciales Bien](assets/img/CredencialesBien.png)
+ - Nos iniciamos bien, y iniciamos tambien con otro usuario no dado de alta para dar error, y miramos los logs
+ ![Comprobar Logs](assets/img/ComprobarLog.png)
+ - Lo siguiente es hacer que una parte solo pida la autenticacion en este caso le pondremos a contact, 
+ para eso lo que tenemos que hacer es ir a sites-availables y configurarlo como al principio en la parte de location borrar el auth.
+ ![BorrarAuth](assets/img/borrarAuth.png)
 
 ## Atentificacion Docker
 - Primero descargo las utilidades de OpenSSl con el contenedor stakater/ssl-certs-generator

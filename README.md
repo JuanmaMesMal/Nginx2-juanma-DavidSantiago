@@ -23,6 +23,8 @@
  - Lo siguiente es hacer que una parte solo pida la autenticacion en este caso le pondremos a contact, 
  para eso lo que tenemos que hacer es ir a sites-availables y configurarlo como al principio en la parte de location borrar el auth.
  ![BorrarAuth](assets/img/borrarAuth.png)
+ - y creamos un location = /contact.html por que es el que queremos meter la autenticacion.
+ ![Contact Auth](assets/img/authContact.png)
 
 ## Atentificacion Docker
 - Primero descargo las utilidades de OpenSSl con el contenedor stakater/ssl-certs-generator

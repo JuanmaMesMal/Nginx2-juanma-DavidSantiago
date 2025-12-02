@@ -43,3 +43,24 @@
 - Luego busco en Internet por local, si me pide el usuario y la contraseña vamos por buen camino.
 ![Comprobacion Usuario Contraeña](assets/img/UsuarioContraseña.png)
 
+
+### Acceso a contact.html
+- Busco los logs que han intentado iniciar sesion
+![Comprobacion Usuario Contraeña](assets/img/Logs.png)
+- Aplicamos una restriccion al directorio raiz.
+![Comprobacion Usuario Contraeña](assets/img/cambiarblocnotas.png)
+- visualizamos en local contact.html
+![Comprobacion Usuario Contraeña](assets/img/Visualizacioncontact.png)
+- Para terminar la Tarea 2, hay que eliminar 
+![Comprobacion Usuario Contraeña](assets/img/Borrar2lineas.png)
+
+### Restriccion acceso IP
+- Añadimos la APi dentro de juanma-davids.conf.test
+![Comprobacion Usuario Contraeña](assets/img/AñadirlocationApi.png)
+- Para luego denegar la IP con all el acceso se permite si se satisface al
+menos una de las dos condiciones.
+![Comprobacion Usuario Contraeña](assets/img/denegarIP.png)
+- Comprobamos si ha funcionado.
+![Comprobacion Usuario Contraeña](assets/img/funcionamientoApi.png)
+
+###

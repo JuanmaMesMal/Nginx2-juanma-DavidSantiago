@@ -57,10 +57,15 @@
 ### Restriccion acceso IP
 - Añadimos la APi dentro de juanma-davids.conf.test
 ![Comprobacion Usuario Contraeña](assets/img/AñadirlocationApi.png)
+- Comprobamos si ha funcionado.
+![Comprobacion Usuario Contraeña](assets/img/funcionamientoApi.png)
 - Para luego denegar la IP con all el acceso se permite si se satisface al
 menos una de las dos condiciones.
 ![Comprobacion Usuario Contraeña](assets/img/denegarIP.png)
-- Comprobamos si ha funcionado.
-![Comprobacion Usuario Contraeña](assets/img/funcionamientoApi.png)
+- Comprobamos si funciona deny all con la IP
+![Comprobacion Usuario Contraeña](assets/img/comprobardenegar.png)
 
-###
+### Configuracion para tener una IP valida y un usuario valido a la vez
+- Modificamos con cat el archivo de bloc de notas para que desde tu máquina anfitriona se tenga que tener tanto una IP válida como
+un usuario válido.
+![Comprobacion Usuario Contraeña](assets/img/IPvalida.png)

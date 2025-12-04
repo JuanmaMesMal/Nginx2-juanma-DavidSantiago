@@ -25,7 +25,27 @@
  ![BorrarAuth](assets/img/borrarAuth.png)
  - y creamos un location = /contact.html por que es el que queremos meter la autenticacion, y al ir a contact no nos dejara, nos pedira autenticarnos
  ![Contact Auth](assets/img/authContact.png)
- ![Contact Auth](assets/img/ComprobarContact.png)
+ ![Contact comprobar](assets/img/ComprobarContact.png)
+
+ ### Configuracion básica con restricciones por IPA
+ - Para hacer esto, tenemos que irnos a la ruta de  "nginx/sites-available/juanma-davids.test" y creamos un location /api y reiniciamos el servicio nginx
+ ![Api](assets/img/apiVagrant.png)
+ - si entro con la IP que esta bloqueada sale el error 403
+ ![Error 403](assets/img/Error403.png)
+ - Ahora bloqueamos en el directorio raiz / que nuestra maquina anfitriona no pueda acceder
+   - para eso volvemos a modificar el archivo de sites-available
+  ![negamos la entrada a raiz](assets/img/raiznegar.png)
+  ![Error 403 Raiz](assets/img/error403raiz.png)
+  - comprobamos en los logs
+  ![Acceso denegado log](assets/img/logsAccesodenegado.png)
+  - y por ultimo vamos ha hacer que solo luestra maquina pueda acceder pero con un usuario correcto
+  y cambiamos que deje entrar (allow) a nuestra ip y se deniegue (deny) a todos
+  ![Deny all](assets/img/denyall.png)
+    -  esta captura esta mal, me falta el satisfy all y  tengo primero el deny y luego el allow, esto hace que se deniegue primero a todos y ya no sigue para abajo.
+    correccion:
+    ![Correccion](assets/img/correccion.png)
+ - con esto ya vuelve a pedirnos el loguin y ya dependera del usuario que metamos
+ ![Entramos con la ip que solo puede entrar con el login correcto](assets/img/entramosconipsolo.png)
 
 ## Atentificacion Docker
 - Primero descargo las utilidades de OpenSSl con el contenedor stakater/ssl-certs-generator
